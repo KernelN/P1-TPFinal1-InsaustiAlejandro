@@ -1,0 +1,26 @@
+﻿Build started 11/26/2020 1:41:24 PM.
+     1>Project "C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\TPFinal1 Incompleto\TPFinal1 Incompleto.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\TPFinal Incompleto.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Asteroide.cpp
+         Asteroide.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TPFinal Incompleto.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.lib" /MACHINE:X86 Debug\libreria.obj
+         Debug\Asteroide.obj
+         Debug\Bala.obj
+         Debug\Juego.obj
+         Debug\Nave.obj
+         Debug\TPFinal1.obj
+         LINK : C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.exe not found or not built by the last incremental link; performing full link
+         TPFinal1 Incompleto.vcxproj -> C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\Debug\TPFinal Incompleto.exe;#1" /manifest "Debug\TPFinal Incompleto.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\TPFinal Incompleto.unsuccessfulbuild".
+         Touching "Debug\TPFinal Incompleto.lastbuildstate".
+     1>Done Building Project "C:\Users\Ale\documents\visual studio 2010\Projects\P1-TPFinal1-InsaustiAlejandro\TPFinal1 Incompleto\TPFinal1 Incompleto.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.42

@@ -4,10 +4,10 @@ int Asteroide::_cantAsteroides=0;
 Asteroide::Asteroide(int x,int y){
 	_x=x;
 	_y=y;
-	//completar
+	_cantAsteroides++;
 }
 Asteroide::~Asteroide(){
-	//completar
+	_cantAsteroides--;
 }
 int Asteroide::getCantAsteroides(){
 	return _cantAsteroides;
@@ -22,9 +22,11 @@ void Asteroide::borrar(){
 }
 void Asteroide::mover(){
 	borrar();
-	borrar();
 	_y++;
-	//completar
+	if(_y >= MAX_Y){
+		_y = MIN_Y;
+		_x = rand() % MAX_X - MIN_X;
+	}
 }
 void Asteroide::colision(Nave* nave){
 	if(_x>=nave->getX() && _x<nave->getX()+ANCHO_NAVE && 

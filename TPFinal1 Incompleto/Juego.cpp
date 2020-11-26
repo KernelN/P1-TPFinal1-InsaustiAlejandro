@@ -21,6 +21,9 @@ void Juego::init(){
 	_resultado=false;
 	_nave= new Nave(38,21,3,3);
 
+	vecAst[0] = new Asteroide(10, 4);
+	vecAst[1] = new Asteroide(4, 8);
+	vecAst[2] = new Asteroide(15, 10);
 	// completar
 }
 bool Juego::gameOver(){
@@ -58,12 +61,21 @@ void Juego::draw(){
 	if(!_gameOver){
 		display();
 		_nave->dibujar();
-		// completar	
+		
+		for(short i = 0; i < TOPE; i++){
+			if(vecAst[i] != NULL){
+				vecAst[i]->dibujar();
+			}
+		}	
 	}
 }
 void Juego::update(){
 
-	// completar
+	for(short i = 0; i < TOPE; i++){
+			if(vecAst[i] != NULL){
+				vecAst[i]->mover();
+			}
+		}
 
 	if(_puntos==PUNTOS){
 		_resultado=true;
@@ -77,6 +89,7 @@ void Juego::display(){
 	gotoxy(2,1);cout<<"Vidas "<<_nave->getVidas()<<" ";
 	gotoxy(11,1);cout<<"Salud ";
 	gotoxy(17,1);cout<<"        ";
+	gotoxy(55,1);cout<<"Asteroides:" << Asteroide::getCantAsteroides();
 	int c=_nave->getCorazones();
 	for(int i=0;i<c;i++){
 		gotoxy(17+i,1);

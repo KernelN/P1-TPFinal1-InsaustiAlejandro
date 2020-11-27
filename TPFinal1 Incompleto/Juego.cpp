@@ -1,15 +1,29 @@
 #include "Juego.h"
 
 Juego::Juego(){
+	_nave = NULL;
 	for(short i = 0; i < TOPE; i++){
 		vecAst[i] = NULL;
 	}
+	for(int i=0;i<TOPEB;i++){
+		_vecB[i] = NULL;
+	}
 }
 Juego::~Juego(){
-for(short i = 0; i < TOPE; i++){
+	if(_nave != NULL){
+		_nave = NULL;
+		delete _nave;
+	}
+	for(short i = 0; i < TOPE; i++){
 		if(vecAst[i] != NULL){
 			vecAst[i] = NULL;
 			delete vecAst[i];
+		}
+	}
+	for(short i = 0; i < TOPEB; i++){
+		if(_vecB[i] != NULL){
+			_vecB[i] = NULL;
+			delete _vecB[i];
 		}
 	}
 }
@@ -24,7 +38,6 @@ void Juego::init(){
 	vecAst[0] = new Asteroide(10, 4);
 	vecAst[1] = new Asteroide(4, 8);
 	vecAst[2] = new Asteroide(15, 10);
-	// completar
 }
 bool Juego::gameOver(){
 	return _gameOver;
@@ -54,6 +67,18 @@ void Juego::input(){
 			if(naveX + 2 < MAX_X)
 				_nave->setX(naveX + 1);
 			break;
+		case FIRE:
+			for(int i=0;i<TOPEB;i++){
+				if(_vecB[i]==NULL){
+					_vecB[i] = new Bala(_nave->getX() + 2, _nave->getY() - 1);
+					break;
+				}
+			}
+			break;
+		case KEY_ESC:
+			_gameOver = true;
+		default:
+			break;
 		}
 	}
 }
@@ -61,21 +86,50 @@ void Juego::draw(){
 	if(!_gameOver){
 		display();
 		_nave->dibujar();
-		
+
 		for(short i = 0; i < TOPE; i++){
-			if(vecAst[i] != NULL){
+			if(vecAst[i] != NULL){				
 				vecAst[i]->dibujar();
 			}
-		}	
+		}
+		for(short i = 0; i < TOPEB; i++){
+			if(_vecB[i] != NULL){				
+				if(_vecB[i]->afuera()){
+					_vecB[i]->borrar();
+				}
+				else{
+					_vecB[i]->dibujar();
+				}
+			}
+
+		}
 	}
 }
-void Juego::update(){
+void Juego::update(){	
+	for(int i=0;i<TOPEB;i++){
+		if(_vecB[i]!=NULL && _vecB[i]->afuera()){
+			_vecB[i]->borrar();
+			delete _vecB[i];
+			_vecB[i]=NULL;
+		}
+		for(short j = 0; j < TOPE; j++){
+			if(vecAst[j] != NULL && _vecB[i]!=NULL && 
+				_vecB[i]->getX() == vecAst[j]->getX() && _vecB[i]->getY() == vecAst[j]->getY()){
+					_vecB[i]->borrar();
+					_vecB[i]=NULL;
+					delete _vecB[i];
 
-	for(short i = 0; i < TOPE; i++){
-			if(vecAst[i] != NULL){
-				vecAst[i]->mover();
+					vecAst[j]->borrar();
+					vecAst[j] = new Asteroide(rand()%MAX_X-1,MIN_Y);
 			}
 		}
+	}
+	for(short i = 0; i < TOPE; i++){
+		if(vecAst[i] != NULL){
+			vecAst[i]->mover();
+			vecAst[i]->colision(_nave);
+		}
+	}
 
 	if(_puntos==PUNTOS){
 		_resultado=true;
@@ -118,5 +172,3 @@ void Juego::play(){
 	}
 	result();
 }
-
-

@@ -3,3 +3,7 @@
 ipch/
 #Executable Temporary files
 Debug/
+*.ipch
+*.opensdf
+*.sdf
+*.suo

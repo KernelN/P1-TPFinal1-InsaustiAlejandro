@@ -25,7 +25,7 @@ void Asteroide::mover(){
 	_y++;
 	if(_y >= MAX_Y){
 		_y = MIN_Y;
-		_x = rand() % MAX_X - MIN_X;
+		_x = rand()%MAX_X-1;
 	}
 }
 void Asteroide::colision(Nave* nave){

@@ -7,6 +7,7 @@
 #include "../../Libreria/libreria.h"
 #include "Nave.h"	
 #include "Asteroide.h"
+#include "Bala.h"
 
 #include "Definiciones.h"
 
@@ -19,6 +20,7 @@ class Juego{
 	bool _resultado;
 	Nave* _nave;
 	Asteroide* vecAst[TOPE];	
+	Bala* _vecB[TOPEB];
 	// completar
 public:
 	Juego();
